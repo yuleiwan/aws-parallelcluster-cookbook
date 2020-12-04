@@ -77,6 +77,25 @@ if node['conditions']['dcv_supported'] && node['cfncluster']['cfn_node_type'] ==
   # be sure to have DCV packages installed
   include_recipe "aws-parallelcluster::dcv_install"
 
+  # Enable gdm
+  case node['platform']
+  when 'ubuntu'
+    # enable gdm3
+    service "gdm3" do
+      action %i[enable start]
+    end
+
+    # enable gdm
+    service "gdm" do
+      action %i[enable start]
+    end
+  when 'amazon'
+    # enable gdm
+    service "gdm" do
+      action %i[enable start]
+    end
+  end
+
   node.default['cfncluster']['dcv']['is_graphic_instance'] = graphic_instance?
 
   if node.default['cfncluster']['dcv']['is_graphic_instance']

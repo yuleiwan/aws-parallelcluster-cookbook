@@ -226,5 +226,20 @@ if node['conditions']['dcv_supported']
       action :disabled
       only_if 'which getenforce'
     end
+  when 'ubuntu'
+    # disable gdm3
+    service "gdm3" do
+      action %i[disable stop]
+    end
+
+    # disable gdm
+    service "gdm" do
+      action %i[disable stop]
+    end
+  when 'amazon'
+    # disable gdm
+    service "gdm" do
+      action %i[disable stop]
+    end
   end
 end

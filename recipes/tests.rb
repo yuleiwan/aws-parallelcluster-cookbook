@@ -250,6 +250,12 @@ if node['cfncluster']['cfn_node_type'] == "MasterServer" &&
   end
 end
 
+if node['platform'] != 'centos'
+  execute 'check gdm service is disabled' do
+    command "systemctl list-unit-files | grep gdm | grep disabled"
+    user node['cfncluster']['cfn_cluster_user']
+  end
+end
 ###################
 # EFA - Intel MPI
 ###################
