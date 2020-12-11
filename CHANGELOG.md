@@ -8,6 +8,7 @@ This file is used to list changes made in each version of the AWS ParallelCluste
 
 **ENHANCEMENTS**
 - Configure NFS threads to be max(8, num_cores) for performance
+- Set default systemd runlevel to multi-user.target on all OSes during ami creation. The runlevel is set to graphical.target only when DCV is enabled.
 
 **CHANGES**
 - Upgrade NICE DCV to version 2020.2-9662
