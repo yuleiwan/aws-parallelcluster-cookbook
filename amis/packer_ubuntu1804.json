@@ -246,7 +246,7 @@
         "cfncluster" : {
           "cfn_region": "{{user `region`}}",
           "nvidia" : {
-            "enabled" : "{{user `nvidia_enabled`}}"
+            "enabled" : "true"
           },
           "dcv": {
             "installed" : "{{user `dcv_installed`}}"

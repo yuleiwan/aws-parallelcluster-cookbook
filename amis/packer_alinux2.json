@@ -224,7 +224,7 @@
         "cfncluster" : {
           "cfn_region": "{{user `region`}}",
           "nvidia" : {
-            "enabled" : "{{user `nvidia_enabled`}}"
+            "enabled" : "true"
           },
           "custom_node_package" : "{{user `custom_node_package`}}",
           "cfn_base_os" : "alinux2"
