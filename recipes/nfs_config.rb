@@ -29,7 +29,7 @@ if node['platform'] == 'centos' && node['platform_version'].to_i == 8
   node.force_override['nfs']['config']['server_template'] = '/etc/nfs.conf'
 end
 
-if node['platform'] == 'ubuntu' && node['platform_version'].to_f >= 16.04
+if node['platform'] == 'ubuntu' && node['platform_version'].to_f == 16.04
   # FIXME: https://github.com/atomic-penguin/cookbook-nfs/issues/93
   include_recipe "nfs::server"
 end
